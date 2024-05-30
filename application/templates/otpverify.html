@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+</head>
+<body>
+    <h1>OTP Verification</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="number1">Enter OTP:</label>
+            <!-- <input type="text" id="number1" name="number1" maxlength="1" required>
+            <input type="text" id="number2" name="number2" maxlength="1" required>
+            <input type="text" id="number3" name="number3" maxlength="1" required> -->
+            <input type="text" id="number1" name="number1" maxlength="4" required>
+        </div>
+        <button type="submit">Verify OTP</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Posts</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #F2F2F2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Slug</th>
+                <th>Content</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in blog %}
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.author }}</td>
+                    <td>{{ post.slug }}</td>
+                    <td>{{ post.content }}</td>
+                    <td>{{ post.status }}</td>
+                    <td><a href="{% url 'blog_update' post.id %}">UPDATE</a>|<a href="{% url 'blog_delete' post.id %}">DELETE</a></td>
+                    <!-- <td><a href="{% url 'blog_delete' post.id %}">DELETE</a></td> -->
+                    <!-- <td> Update | DELETE</td> -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
