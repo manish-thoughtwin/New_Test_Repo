@@ -8,7 +8,6 @@ class SignupForm(forms.ModelForm):
         
                 
 
-
 class BlogForm(forms.ModelForm):
     class Meta:
         model = Blogs

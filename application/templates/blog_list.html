@@ -40,7 +40,7 @@
                     <td>{{ post.slug }}</td>
                     <td>{{ post.content }}</td>
                     <td>{{ post.status }}</td>
-                    <td><a href="{% url 'blog_update' post.id %}">UPDATE</a>|<a href="{% url 'blog_delete' post.id %}">DELETE</a></td>
+                    <td><a href="{% url 'blog_update' post.id %}">UPDATE</a>|<a href="{% url 'blog_delete' post.id %}">DELETE</a>|<a href="{% url 'blog_create' %}">CREATE</a></td></td>
                     <!-- <td><a href="{% url 'blog_delete' post.id %}">DELETE</a></td> -->
                     <!-- <td> Update | DELETE</td> -->
                 </tr>

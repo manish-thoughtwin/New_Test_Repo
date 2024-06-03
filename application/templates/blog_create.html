@@ -1,10 +1,9 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>Delete Blogs</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Blog</title>
+    <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -13,16 +12,19 @@
     <!-- <input type="checkbox" id="flip"> -->
     <div class="cover">
         <div class="front">
+            <img src="/static/img/image.png" alt="">
         </div>
     </div>
     <div class="forms">
         <div class="form-content">
             <div class="login-form">
-                <div class="title">Delete Blogs</div>
+                <div class="title">Create Blog</div>
                 <form method="post">
                     {% csrf_token %}
-                    <p>Are you sure you want to delete employee "{{ Blogs.title }}</p>
-                    <input type="submit" value="Delete">
+                    {{ form.as_p }}
+                    <div class="button input-box">
+                        <input type="submit" value="Submit">
+                    </div>
                 </form>
             </div>
         </div>

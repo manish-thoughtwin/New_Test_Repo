@@ -48,7 +48,7 @@ def login_view(request):
             user = Registration.objects.get(email=user.email)
             user.otp = otp  
             user.save() 
-            print("uuuuuuuuuuuuuuu",user.otp)
+            print("",user.otp)
 
             
             
@@ -88,10 +88,9 @@ def otp_view(request):
 
 
 def blog_list(request):
-    blog = Blogs.objects.all()
+    blog = Blogs.objects.all().order_by('id')
     return render(request, 'blog_list.html', {'blog':blog})
   
-
 
 
 def blog_create(request):
@@ -102,7 +101,7 @@ def blog_create(request):
             return redirect('blog_list')
     else:
         form = BlogForm()
-    return render(request, 'blogs/blog_form.html', {'form': form})
+    return render(request, 'blog_create.html', {'form': form})
 
 
 
@@ -113,7 +112,7 @@ def blog_update(request,id):
         form = BlogForm(request.POST, instance=blog)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('blog_list')
     else:
         form = BlogForm(instance=blog)
     
@@ -125,7 +124,7 @@ def blog_delete(request, id):
         Blog = Blogs.objects.get(id=id)
 
         Blog.delete()
-        return redirect('Blogs_list')
+        return redirect('blog_list')
     return render(request, 'blog_delete.html')
 
 
